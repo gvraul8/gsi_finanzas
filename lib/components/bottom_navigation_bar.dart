@@ -73,22 +73,3 @@ class _BaseAppState extends State<BaseApp> {
     );
   }
 }
-
-// Puedes utilizar la clase BaseApp como el widget padre de tus pantallas
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return BaseApp(
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Mi aplicación'),
-        ),
-        body: const Center(
-          child: Text('Contenido de la página principal'),
-        ),
-      ),
-    );
-  }
-}

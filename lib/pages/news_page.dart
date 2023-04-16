@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:gsi_finanzas/components/custom_list_tile.dart';
-import 'package:gsi_finanzas/services/api_services.dart';
+import 'package:gsi_finanzas/components/news_list_tile.dart';
+import 'package:gsi_finanzas/services/finnhub_service.dart';
 
 import '../models/article_model.dart';
 
 class NewsPage extends StatelessWidget {
-  ApiService client = ApiService();
+  FinnhubService client = FinnhubService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,14 +14,14 @@ class NewsPage extends StatelessWidget {
           title: const Text('Noticias'),
         ),
         body: FutureBuilder(
-          future: client.getArticles(),
+          future: client.getNews(),
           builder:
               (BuildContext context, AsyncSnapshot<List<Article>> snapshot) {
             if(snapshot.hasData){
               List<Article>? articles = snapshot.data;
               return ListView.builder(
                   itemCount: articles?.length,
-                  itemBuilder: (context, index) => customListTile(articles![index], context)
+                  itemBuilder: (context, index) => NewsListTile(articles![index], context)
               );
             }
 

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 import '../models/article_model.dart';
-import '../pages/articles_details_page.dart';
+import '../pages/news_details_page.dart';
 
-Widget customListTile(Article article, BuildContext context){
+Widget NewsListTile(Article article, BuildContext context){
   return InkWell(
     onTap: (){
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => ArticlePage(article: article,))
+        MaterialPageRoute(builder: (context) => NewsDetailsPage(article: article,))
       );
 
     },
@@ -39,7 +39,7 @@ Widget customListTile(Article article, BuildContext context){
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
               image: DecorationImage(
-                image: NetworkImage(article.urlToImage),
+                image: NetworkImage(article.image),
                 fit: BoxFit.cover
               ),
             ),
@@ -52,11 +52,11 @@ Widget customListTile(Article article, BuildContext context){
             color: Colors.red
               ),
               child: Text(
-                article.source.name,),
+                article.source,),
             ),
           const SizedBox(height: 8.0,),
           Text(
-            article.title, style: const TextStyle(
+            article.headline, style: const TextStyle(
             fontSize: 16.0,
             fontWeight: FontWeight.bold
             ),

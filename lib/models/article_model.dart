@@ -1,35 +1,26 @@
-import 'source_model.dart';
 
 class Article{
-  Source source;
-  String author;
-  String title;
-  String description;
+  String source;
+  String headline;
+  String summary;
   String url;
-  String urlToImage;
-  String publishedAt;
-  String content;
+  String image;
 
-  Article(
-    {required this.source,
-    required this.author,
-    required this.title,
-    required this.description,
+  Article({
+    required this.source,
+    required this.headline,
+    required this.summary,
     required this.url,
-    required this.urlToImage,
-    required this.publishedAt,
-    required this.content});
+    required this.image,
+  });
 
   factory Article.fromJson(Map<String, dynamic> json){
     return Article(
-      source: Source.fromJson(json['source']),
-      author: json['author'] ?? '',
-      title: json['title'] ?? '',
-      description: json['description'] ?? '',
-      url: json['url'] ?? '',
-      urlToImage: json['urlToImage'] ?? '',
-      publishedAt: json['publishedAt'] ?? '',
-      content: json['content'] ?? '',
+      source: json['source'],
+      headline: json['headline'],
+      summary: json['summary'],
+      url: json['url'],
+      image: json['image'],
     );
   }
 }

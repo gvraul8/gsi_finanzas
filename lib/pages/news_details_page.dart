@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import  'package:gsi_finanzas/models/article_model.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:gsi_finanzas/models/article_model.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
-class ArticlePage extends StatelessWidget {
+class NewsDetailsPage extends StatelessWidget {
   final Article article;
 
-  const ArticlePage({super.key, required this.article});
+  const NewsDetailsPage({Key? key, required this.article}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF020060),
-        title: Text(article.title),
+        title: Text(article.headline),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -24,7 +26,7 @@ class ArticlePage extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: NetworkImage(article.urlToImage), fit: BoxFit.cover),
+                    image: NetworkImage(article.image!), fit: BoxFit.cover),
                 borderRadius: BorderRadius.circular(12.0),
               ),
             ),
@@ -38,7 +40,7 @@ class ArticlePage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30.0),
               ),
               child: Text(
-                article.source.name,
+                article.source!,
                 style: const TextStyle(
                   color: Colors.white,
                 ),
@@ -48,12 +50,38 @@ class ArticlePage extends StatelessWidget {
               height: 8.0,
             ),
             Text(
-              article.description,
+              article.headline!,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16.0,
               ),
-            )
+            ),
+            const SizedBox(
+              height: 8.0,
+            ),
+            Text(
+              article.summary!,
+              style: const TextStyle(
+                fontWeight: FontWeight.w300,
+                fontSize: 14.0,
+              ),
+            ),
+            const SizedBox(
+              height: 16.0,
+            ),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                  const Color(0xFF020060),
+                ),
+              ),
+              onPressed: () async {
+
+                  await launchUrlString(article.url);
+
+              },
+              child: const Text('Leer más'),
+            ),
           ],
         ),
       ),
