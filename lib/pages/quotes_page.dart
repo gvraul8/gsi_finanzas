@@ -5,9 +5,11 @@ import 'package:gsi_finanzas/services/finnhub_service.dart';
 import '../components/quotes_list_tile.dart';
 
 class QuotesPage extends StatelessWidget {
-  FinnhubService client = FinnhubService();
+  const QuotesPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    final FinnhubService client = FinnhubService();
     return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color(0xFF020060),
@@ -15,14 +17,13 @@ class QuotesPage extends StatelessWidget {
         ),
         body: FutureBuilder(
           future: client.getQuotes(),
-          builder:
-              (BuildContext context, AsyncSnapshot<List<Quote>> snapshot) {
-            if(snapshot.hasData){
+          builder: (BuildContext context, AsyncSnapshot<List<Quote>> snapshot) {
+            if (snapshot.hasData) {
               List<Quote>? quotes = snapshot.data;
               return ListView.builder(
                   itemCount: quotes?.length,
-                  itemBuilder: (context, index) => QuotesListTile(quotes![index], context)
-              );
+                  itemBuilder: (context, index) =>
+                      QuotesListTile(quotes![index], context));
             }
 
             return const Center(

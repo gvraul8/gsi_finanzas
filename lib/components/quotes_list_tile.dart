@@ -2,25 +2,30 @@ import 'package:flutter/material.dart';
 
 import '../models/quote_model.dart';
 
-Widget QuotesListTile(Quote quote, BuildContext context){
-  Color changeColor = quote.changePercent < 0.00 ? Colors.red : Colors.green;
-  IconData changeIcon = quote.changePercent < 0.00 ? Icons.arrow_downward : Icons.arrow_upward;
+Widget QuotesListTile(Quote quote, BuildContext context) {
+  Color changeColor = Colors.yellow;
+  IconData changeIcon = Icons.line_axis;
+  if (quote.changePercent < 0.0) {
+    changeColor = Colors.red;
+    changeIcon = Icons.arrow_downward;
+  } else if (quote.changePercent > 0.0) {
+    changeColor = Colors.green;
+    changeIcon = Icons.arrow_upward;
+  }
 
   return Container(
     margin: const EdgeInsets.all(12.0),
     padding: const EdgeInsets.all(8.0),
     decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(10.0),
-      boxShadow: const [
-        BoxShadow(
-          color: Colors.black12,
-          blurRadius: 5.0,
-          spreadRadius: 1.0,
-          offset: Offset(1.0, 1.0)
-        )
-      ]
-    ),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10.0),
+        boxShadow: const [
+          BoxShadow(
+              color: Colors.black12,
+              blurRadius: 5.0,
+              spreadRadius: 1.0,
+              offset: Offset(1.0, 1.0))
+        ]),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -31,7 +36,8 @@ Widget QuotesListTile(Quote quote, BuildContext context){
               height: 70,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("assets/symbols/${quote.icon}"), fit: BoxFit.fitWidth)),
+                      image: AssetImage("assets/symbols/${quote.icon}"),
+                      fit: BoxFit.fitWidth)),
             ),
             Container(
               margin: const EdgeInsets.only(left: 15),

@@ -5,9 +5,11 @@ import 'package:gsi_finanzas/services/finnhub_service.dart';
 import '../models/article_model.dart';
 
 class NewsPage extends StatelessWidget {
-  FinnhubService client = FinnhubService();
+  const NewsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
+    FinnhubService client = FinnhubService();
     return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color(0xFF020060),
@@ -17,12 +19,12 @@ class NewsPage extends StatelessWidget {
           future: client.getNews(),
           builder:
               (BuildContext context, AsyncSnapshot<List<Article>> snapshot) {
-            if(snapshot.hasData){
+            if (snapshot.hasData) {
               List<Article>? articles = snapshot.data;
               return ListView.builder(
                   itemCount: articles?.length,
-                  itemBuilder: (context, index) => NewsListTile(articles![index], context)
-              );
+                  itemBuilder: (context, index) =>
+                      NewsListTile(articles![index], context));
             }
 
             return const Center(

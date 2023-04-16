@@ -5,12 +5,10 @@ import '../pages/news_page.dart';
 
 // Clase base que contiene el BottomNavigationBar
 class BaseApp extends StatefulWidget {
-  final Widget child;
-
-  const BaseApp({required this.child});
+  const BaseApp({super.key});
 
   @override
-  _BaseAppState createState() => _BaseAppState();
+  State<BaseApp> createState() => _BaseAppState();
 }
 
 class _BaseAppState extends State<BaseApp> {
@@ -32,34 +30,25 @@ class _BaseAppState extends State<BaseApp> {
     ),
   ];
 
+  static const List<Widget> _widgetOptions = <Widget>[
+    HomePage(),
+    NewsPage(),
+    QuotesPage(),
+  ];
+
   // Método para manejar el evento de selección de elementos del BottomNavigationBar
   void _onItemTapped(int index) {
     setState(() {
       _currentIndex = index;
     });
-
-    if (_currentIndex == 0) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const HomePage()),
-        );
-      } else if (_currentIndex == 1) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) =>  NewsPage()),
-      );
-    } else if (_currentIndex == 2) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => QuotesPage()),
-      );
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: widget.child,
+      body: Center(
+        child: _widgetOptions.elementAt(_currentIndex),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: const Color(0xFF020060),
         selectedItemColor: Colors.blue,

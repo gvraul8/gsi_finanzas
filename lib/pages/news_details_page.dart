@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:gsi_finanzas/models/article_model.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -76,9 +75,7 @@ class NewsDetailsPage extends StatelessWidget {
                 ),
               ),
               onPressed: () async {
-
-                  await launchUrlString(article.url);
-
+                await launchUrlString(article.url);
               },
               child: const Text('Leer más'),
             ),
