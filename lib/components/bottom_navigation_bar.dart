@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gsi_finanzas/pages/home_page.dart';
-import '../pages/investment_page.dart';
+import 'package:gsi_finanzas/pages/quotes_page.dart';
 import '../pages/news_page.dart';
-import '../pages/home_page.dart';
 
 // Clase base que contiene el BottomNavigationBar
 class BaseApp extends StatefulWidget {
@@ -52,7 +51,7 @@ class _BaseAppState extends State<BaseApp> {
     } else if (_currentIndex == 2) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const Investment()),
+        MaterialPageRoute(builder: (context) => QuotesPage()),
       );
     }
   }
