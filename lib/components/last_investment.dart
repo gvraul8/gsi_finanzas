@@ -4,9 +4,6 @@ import '../dataset.dart';
 
 class LastInvestment extends StatelessWidget {
   calculatePie(int value) {
-    // int total = lastInvestment[0].value +
-    //     lastInvestment[1].value +
-    //     lastInvestment[2].value;
     double result = (value / 12345) * 100;
     return result;
   }
@@ -47,7 +44,6 @@ class LastInvestment extends StatelessWidget {
                   'Últimas Inversiones',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                const Icon(Icons.arrow_forward_ios),
               ],
             ),
             const SizedBox(
@@ -55,29 +51,33 @@ class LastInvestment extends StatelessWidget {
             ),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               SizedBox(
-                width: 100,
+                width: 125,
                 height: 220,
                 child: Stack(
                   children: [
                     Positioned(
                         child: PieChart(PieChartData(sections: [
-                          PieChartSectionData(
-                              value: calculatePie(1234),
-                              color: Colors.red,
-                              radius: 16,
-                              showTitle: false),
-                          PieChartSectionData(
-                              value: calculatePie(568),
-                              color: Colors.blue,
-                              radius: 16,
-                              showTitle: false),
-                          PieChartSectionData(
-                              value: calculatePie(123),
-                              color: Colors.green,
-                              radius: 16,
-                              showTitle: false),
+                      PieChartSectionData(
+                          value: calculatePie(2500),
+                          color: Colors.red,
+                          radius: 18,
+                          showTitle: false),
+                      PieChartSectionData(
+                          value: calculatePie(1000),
+                          color: Colors.blue,
+                          radius: 18,
+                          showTitle: false),
+                      PieChartSectionData(
+                          value: calculatePie(750),
+                          color: Colors.green,
+                          radius: 18,
+                          showTitle: false),
+                      PieChartSectionData(
+                          value: calculatePie(500),
+                          color: Colors.yellow,
+                          radius: 18,
+                          showTitle: false),
                     ])))
-
                   ],
                 ),
               ),
@@ -87,38 +87,22 @@ class LastInvestment extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const Icon(Icons.trip_origin, color: Colors.blue, size: 12),
-                      const SizedBox(width: 4,),
+                      const Icon(Icons.trip_origin,
+                          color: Colors.red, size: 12),
+                      const SizedBox(
+                        width: 4,
+                      ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                           const Text('Twitter',
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.w600)),
-                      const SizedBox(height: 3,),
-                      const Text('1000'+'€',
-                          style: TextStyle(color: Colors.black54)),
-
-                        ],
-                      )
-
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Icon(Icons.trip_origin, color: Colors.blue, size: 12),
-                      SizedBox(width: 4,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                           Text('Twitter',
-                          style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.w600)),
-                      SizedBox(height: 3,),
-                      Text('1000'+'€',
-                          style: const TextStyle(color: Colors.black54)),
-
+                          const Text('Banco Santander SA',
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w600)),
+                          const SizedBox(
+                            height: 3,
+                          ),
+                          const Text('2500' + '€',
+                              style: TextStyle(color: Colors.black54)),
                         ],
                       )
                     ],
@@ -126,21 +110,70 @@ class LastInvestment extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const Icon(Icons.trip_origin, color: Colors.blue, size: 12),
-                      SizedBox(width: 4,),
+                      const Icon(Icons.trip_origin,
+                          color: Colors.blue, size: 12),
+                      const SizedBox(
+                        width: 4,
+                      ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                           Text('Twitter',
-                          style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.w600)),
-                      SizedBox(height: 3,),
-                      Text('1000'+'€',
-                          style: const TextStyle(color: Colors.black54)),
-
+                          const Text('Amazon.com INC',
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w600)),
+                          const SizedBox(
+                            height: 3,
+                          ),
+                          const Text('1000' + '€',
+                              style: TextStyle(color: Colors.black54)),
                         ],
                       )
-
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const Icon(Icons.trip_origin,
+                          color: Colors.green, size: 12),
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text('Tesla INC',
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w600)),
+                          const SizedBox(
+                            height: 3,
+                          ),
+                          const Text('750' + '€',
+                              style: TextStyle(color: Colors.black54)),
+                        ],
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const Icon(Icons.trip_origin,
+                          color: Colors.yellow, size: 12),
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text('Microsoft CORP',
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w600)),
+                          const SizedBox(
+                            height: 3,
+                          ),
+                          const Text('500' + '€',
+                              style: TextStyle(color: Colors.black54)),
+                        ],
+                      )
                     ],
                   )
                 ],

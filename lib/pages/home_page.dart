@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF020060),
-        title: const Text('Home Page'),
+        title: const Text('Inicio'),
       ),
       body: Stack(
         children: [
@@ -93,8 +93,8 @@ class depositItem extends StatelessWidget {
     return Container(
       width: 200,
       height: 50,
-      margin: EdgeInsets.only(right: 25),
-      padding: EdgeInsets.all(5),
+      margin: const EdgeInsets.only(right: 25),
+      padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: Colors.black, width: 0.3),
@@ -102,7 +102,7 @@ class depositItem extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text(
+          const Text(
             "|",
             style: TextStyle(fontSize: 20, color: Colors.grey),
           ),
@@ -112,11 +112,11 @@ class depositItem extends StatelessWidget {
             children: [
               Text(
                 name,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               Text(
                 detail,
-                style: TextStyle(fontSize: 12, color: Colors.grey),
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
               ),
             ],
           ),
