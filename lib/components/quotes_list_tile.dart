@@ -4,13 +4,13 @@ import '../models/quote_model.dart';
 
 Widget QuotesListTile(Quote quote, BuildContext context) {
   Color changeColor = Colors.yellow;
-  IconData changeIcon = Icons.line_axis;
+  IconData changeIcon = Icons.trending_flat;
   if (quote.changePercent < 0.0) {
     changeColor = Colors.red;
-    changeIcon = Icons.arrow_downward;
+    changeIcon = Icons.trending_down;
   } else if (quote.changePercent > 0.0) {
     changeColor = Colors.green;
-    changeIcon = Icons.arrow_upward;
+    changeIcon = Icons.trending_up;
   }
 
   return Container(
@@ -78,7 +78,7 @@ Widget QuotesListTile(Quote quote, BuildContext context) {
             Container(
               width: 90,
               height: 25,
-              padding: const EdgeInsets.only(left: 5, right: 10),
+              padding: const EdgeInsets.only(left: 0, right: 15),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5.0),
                 color: changeColor.withOpacity(0.5),
